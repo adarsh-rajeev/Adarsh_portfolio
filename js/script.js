@@ -1,67 +1,60 @@
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
+// Navbar hamburger + theme toggle + footer year + close on link
+(function () {
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
 
-hamburger.addEventListener("click", mobileMenu);
+  if (hamburger && navMenu) {
+    const toggle = () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    };
+    hamburger.addEventListener("click", toggle);
+    hamburger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") toggle();
+    });
 
-function mobileMenu() {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-}
+    // Close on link click
+    navMenu.querySelectorAll(".nav-link").forEach((n) =>
+      n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      })
+    );
+  }
 
-// Close navbar when link is clicked
-const navLink = document.querySelectorAll(".nav-link");
+  // Theme toggle with persistence
+  const toggleSwitch = document.querySelector("#switch");
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (toggleSwitch) toggleSwitch.checked = theme === "dark";
+  };
 
-navLink.forEach((n) => n.addEventListener("click", closeMenu));
-
-function closeMenu() {
-  hamburger.classList.remove("active");
-  navMenu.classList.remove("active");
-}
-
-// Event Listeners: Handling toggle event
-const toggleSwitch = document.querySelector(
-  '.theme-switch input[type="checkbox"]'
-);
-
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
+  // Init from storage or prefers-color-scheme
+  const stored = localStorage.getItem("theme");
+  if (stored) {
+    applyTheme(stored);
+  } else if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    applyTheme("dark");
   } else {
-    document.documentElement.setAttribute("data-theme", "light");
+    applyTheme("light");
   }
-}
 
-toggleSwitch.addEventListener("change", switchTheme, false);
-
-//  Store color theme for future visits
-
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark"); //add this
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light"); //add this
+  if (toggleSwitch) {
+    toggleSwitch.addEventListener(
+      "change",
+      (e) => {
+        const mode = e.target.checked ? "dark" : "light";
+        applyTheme(mode);
+        localStorage.setItem("theme", mode);
+      },
+      false
+    );
   }
-}
 
-// Save user preference on load
-
-const currentTheme = localStorage.getItem("theme")
-  ? localStorage.getItem("theme")
-  : null;
-
-if (currentTheme) {
-  document.documentElement.setAttribute("data-theme", currentTheme);
-
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true;
-  }
-}
-
-//Adding date
-
-let myDate = document.querySelector("#datee");
-
-const yes = new Date().getFullYear();
-myDate.innerHTML = yes;
+  // Footer year
+  const myDate = document.querySelector("#datee");
+  if (myDate) myDate.textContent = new Date().getFullYear();
+})();

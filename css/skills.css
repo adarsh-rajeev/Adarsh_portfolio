@@ -1,0 +1,120 @@
+/* Skills section — gold-accented, matches portfolio theme */
+
+#skills .content-text h2 {
+  font-size: 2.4rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 2rem; /* matches Projects spacing */
+  margin-top: 1rem;
+}
+
+/* Reuse your .card base style; add section-specific tweaks */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-height: auto;
+}
+
+/* Heading with subtle gold accent bar */
+.skill-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  position: relative;
+  padding-bottom: 0.35rem;
+}
+.skill-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 70px;
+  height: 3px;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--secondary-color),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0.8;
+}
+.skill-heading h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.skill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 205, 66, 0.18),
+    rgba(255, 205, 66, 0.06)
+  );
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  color: #111;
+}
+[data-theme="dark"] .skill-icon {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 205, 66, 0.22),
+    rgba(255, 205, 66, 0.08)
+  );
+  color: #111;
+}
+
+/* Tags */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.38rem 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: 999px;
+  color: var(--text-color);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 221, 102, 0.18),
+    rgba(255, 205, 66, 0.12)
+  );
+  border: 1px solid rgba(255, 205, 66, 0.35);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+[data-theme="dark"] .tag {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 221, 102, 0.26),
+    rgba(255, 205, 66, 0.12)
+  );
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+}
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+}

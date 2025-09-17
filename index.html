@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Essential Meta Tags -->
+    <!-- Meta -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,20 +11,14 @@
     />
     <meta name="author" content="Adarsh R" />
 
-    <!-- Social Media Meta Tags -->
-    <meta property="og:title" content="Adarsh's RESUME" />
-    <meta
-      property="og:details"
-      content="Adarsh R , AJCE ,BCA student, Amal Jyothi Collage of Engineering."
-    />
-    <meta
-      property="og:image"
-      content="https://adarsh.wuaze.com/assets/adarsh-profile.png"
-    />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Adarsh's Portfolio" />
+    <meta property="og:description" content="Projects, learning and contact." />
+    <meta property="og:image" content="assets/adarsh-profile.png" />
     <meta property="og:url" content="https://adarsh.wuaze.com" />
     <meta property="og:type" content="website" />
 
-    <!-- Link -->
+    <!-- Favicons -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -34,14 +28,8 @@
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/assets/favicon/favicon-16x16.png"
+      href="assets/favicon/favicon-16x16.png"
     />
-    <!--<link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/favicon/favicon-32x32.png"
-    />-->
     <link
       rel="icon"
       type="image/png"
@@ -56,31 +44,40 @@
     />
     <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
+
+    <!-- Icons + Styles -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+    <!-- Load order: base -> utilities -> skills -> electric (cards) -> nav enhance -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/skills.css" />
+    <link rel="stylesheet" href="css/electric-anim.css" />
+    <link rel="stylesheet" href="css/nav-enhance.css" />
+
+    <title>Adarsh | Portfolio</title>
   </head>
   <body>
     <header id="hero">
       <!-- Navbar -->
       <nav class="navbar">
         <div class="container">
-          <!-- Logo -->
           <h1 id="logo">
-            <a href="#"><img src="./assets/adarsh-logo.png" alt="LOGO" /></a>
+            <a href="#"><img src="assets/adarsh-logo.png" alt="LOGO" /></a>
           </h1>
-          <!-- Navbar links -->
+
           <ul class="nav-menu">
             <li><a class="nav-link" href="#projects">PROJECTS</a></li>
             <li>
               <a
                 class="nav-link"
                 href="https://mail.google.com/mail/?view=cm&to=adarshadhi1205@gmail.com&su=Contact%20from%20Website&body=Hi%20Adarsh%2C"
+                target="_blank"
+                rel="noopener"
                 >GMAIL</a
               >
             </li>
@@ -90,63 +87,239 @@
                 class="nav-link btn btn-primary"
                 href="#"
                 onclick="alert('Resume Not Available Yet!'); return false;"
-                >RESUME <i class="fas fa-arrow-right"></i
-              ></a>
+              >
+                RESUME <i class="fas fa-arrow-right"></i>
+              </a>
             </li>
 
-            <!-- Toggle switch -->
+            <!-- Dark mode toggle -->
             <div class="theme-switch">
               <input type="checkbox" id="switch" />
-              <label class="toggle-icons" for="switch">
-                <img class="moon" src="assets/moon.svg" />
-                <img class="sun" src="assets/sun.svg" />
+              <label
+                class="toggle-icons"
+                for="switch"
+                aria-label="Toggle dark mode"
+              >
+                <img class="moon" src="assets/moon.svg" alt="" />
+                <img class="sun" src="assets/sun.svg" alt="" />
               </label>
             </div>
-            <!-- Hamburger menu -->
           </ul>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+
+          <!-- Hamburger menu -->
+          <div
+            class="hamburger"
+            aria-label="Toggle menu"
+            role="button"
+            tabindex="0"
+          >
+            <span class="bar"></span><span class="bar"></span
+            ><span class="bar"></span>
           </div>
         </div>
       </nav>
 
       <section class="header-container">
-        <img class="profile-image" src="assets/adarsh-profile.png" alt="" />
+        <img
+          class="profile-image"
+          src="assets/adarsh-profile.png"
+          alt="Adarsh profile"
+        />
         <h1>Hi I'm Adarsh R</h1>
 
         <div class="content-text">
           <h2>Innovating Today.</h2>
           <h2>From Curiosity to Code. From Code to Change.</h2>
-
           <p>
             Learning the ropes of programming with a passion for continuous
             improvement.
           </p>
         </div>
+
         <a
           href="https://www.linkedin.com/in/adarsh-r-615a94318/"
           class="btn btn-secondary"
           target="_blank"
-          >Connect With Me On Linked In</a
+          rel="noopener"
         >
+          Connect With Me On LinkedIn
+        </a>
       </section>
     </header>
+
+    <!-- Skills -->
+    <section id="skills" class="container skills-container">
+      <div class="content-text">
+        <h2>Skills</h2>
+        <p>Tools and technologies I use and learn.</p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Programming Languages -->
+        <article class="card skill-card" aria-label="Programming Languages">
+          <header class="skill-heading">
+            <span class="skill-icon"><i class="fas fa-code"></i></span>
+            <h3>Programming Languages</h3>
+          </header>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Java</span>
+            <span class="tag">C</span>
+            <span class="tag">Python</span>
+            <span class="tag">PHP</span>
+          </div>
+        </article>
+
+        <!-- Web Development -->
+        <article class="card skill-card" aria-label="Web Development">
+          <header class="skill-heading">
+            <span class="skill-icon"><i class="fas fa-globe"></i></span>
+            <h3>Web Development</h3>
+          </header>
+          <div class="skill-tags">
+            <span class="tag">Responsive UI</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag">DOM</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </article>
+
+        <!-- Cybersecurity -->
+        <article class="card skill-card" aria-label="Cybersecurity">
+          <header class="skill-heading">
+            <span class="skill-icon"><i class="fas fa-shield-alt"></i></span>
+            <h3>Cybersecurity</h3>
+          </header>
+          <div class="skill-tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Networking</span>
+            <span class="tag">OWASP Top 10</span>
+            <span class="tag">Burp Suite</span>
+            <span class="tag">Wireshark</span>
+            <span class="tag">Nmap</span>
+          </div>
+        </article>
+
+        <!-- Docker -->
+        <article class="card skill-card" aria-label="Docker">
+          <header class="skill-heading">
+            <span class="skill-icon"><i class="fab fa-docker"></i></span>
+            <h3>Docker</h3>
+          </header>
+          <div class="skill-tags">
+            <span class="tag">Docker Engine</span>
+            <span class="tag">Dockerfile</span>
+            <span class="tag">Compose</span>
+            <span class="tag">Images</span>
+            <span class="tag">Volumes</span>
+          </div>
+        </article>
+
+        <!-- Git & GitHub -->
+        <article class="card skill-card" aria-label="Git & GitHub">
+          <header class="skill-heading">
+            <span class="skill-icon"><i class="fab fa-git-alt"></i></span>
+            <h3>Git & GitHub</h3>
+          </header>
+          <div class="skill-tags">
+            <span class="tag">Git CLI</span>
+            <span class="tag">Branching</span>
+            <span class="tag">Pull Requests</span>
+            <span class="tag">Issues</span>
+            <span class="tag">GitHub Actions (basic)</span>
+          </div>
+        </article>
+
+        <!-- Figma -->
+        <article class="card skill-card" aria-label="Figma">
+          <header class="skill-heading">
+            <span class="skill-icon"><i class="fab fa-figma"></i></span>
+            <h3>Figma</h3>
+          </header>
+          <div class="skill-tags">
+            <span class="tag">Wireframing</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Components</span>
+            <span class="tag">Design Systems</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <!-- Projects -->
     <section id="projects" class="project-container container">
       <div class="division"></div>
       <div class="content-text">
         <h2>Projects</h2>
-        <p>There is no projects available at this moment.</p>
+        <p>Here are a few things I’m working on.</p>
       </div>
+
+      <div class="project">
+        <!-- 1) Game On -->
+        <article class="card" aria-label="Project: Game On">
+          <div class="project-info">
+            <h3>Game On</h3>
+            <p>A Mini Gaming Hub.</p>
+            <br />
+            <div class="project-actions">
+              <a
+                class="btn btn-secondary"
+                href="https://github.com/adarsh-rajeev/Game-On"
+                target="_blank"
+                rel="noopener"
+              >
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2) Coming soon -->
+        <article class="card" aria-label="Project: Coming soon">
+          <div class="project-info">
+            <h3>Coming soon</h3>
+            <p>Stay tuned — details will be added soon.</p>
+            <div class="project-actions">
+              <a
+                class="btn btn-secondary"
+                href="#"
+                onclick="alert('Coming soon!'); return false;"
+                >Details</a
+              >
+            </div>
+          </div>
+        </article>
+
+        <!-- 3) Coming soon -->
+        <article class="card" aria-label="Project: Coming soon">
+          <div class="project-info">
+            <h3>Coming soon</h3>
+            <p>Stay tuned — details will be added soon.</p>
+            <div class="project-actions">
+              <a
+                class="btn btn-secondary"
+                href="#"
+                onclick="alert('Coming soon!'); return false;"
+                >Details</a
+              >
+            </div>
+          </div>
+        </article>
+      </div>
+
       <a
-        href="#"
+        href="https://github.com/adarsh-rajeev?tab=repositories"
         class="btn btn-secondary"
-        onclick="alert('No Content Available at this Moment !'); return false;"
-        >See More <i class="fas fa-arrow-right"></i
-      ></a>
+        target="_blank"
+        rel="noopener"
+      >
+        See More <i class="fas fa-arrow-right"></i>
+      </a>
     </section>
 
     <footer id="footer">
@@ -154,29 +327,75 @@
         <a
           href="https://mail.google.com/mail/?view=cm&to=adarshadhi1205@gmail.com&su=Contact%20from%20Website&body=Hi%20Adarsh%2C"
           target="_blank"
-          >adarshadhi1205@gmail.com</a
+          rel="noopener"
         >
-        <!-- Social links -->
+          adarshadhi1205@gmail.com
+        </a>
         <div class="social">
-          <a href="https://www.instagram.com/_adarsheeee_/" target="_blank"
-            ><img src="./assets/instagram.png" alt="Instagram"
-          /></a>
+          <a
+            href="https://www.instagram.com/_adarsheeee_/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="assets/instagram.png" alt="Instagram" />
+          </a>
           <a
             href="https://www.linkedin.com/in/adarsh-r-615a94318/"
             target="_blank"
-            ><img src="./assets/linkedin-icon.svg" alt="Linkedin"
-          /></a>
-          <a href="https://github.com/adarsh599" target="_blank"
-            ><img src="./assets/github-icon.svg" alt="GitHub"
-          /></a>
+            rel="noopener"
+          >
+            <img src="assets/linkedin-icon.svg" alt="LinkedIn" />
+          </a>
+          <a href="https://github.com/adarsh599" target="_blank" rel="noopener">
+            <img src="assets/github-icon.svg" alt="GitHub" />
+          </a>
         </div>
-        <!-- Attribution -->
-
         <p>
           Copyright &copy; Adarsh <span id="datee"></span>, All rights reserved
         </p>
       </div>
     </footer>
-    <script src="js/script.js"></script>
+
+    <!-- Electric border SVG filter (hidden, used by CSS for cards) -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="0"
+      height="0"
+      style="position: absolute; left: -9999px; overflow: hidden"
+    >
+      <filter id="electric-displace">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.8"
+          numOctaves="2"
+          seed="3"
+          result="noise"
+        >
+          <animate
+            attributeName="seed"
+            dur="6s"
+            values="3;21;3"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="baseFrequency"
+            dur="6s"
+            values="0.7;0.9;0.7"
+            repeatCount="indefinite"
+          />
+        </feTurbulence>
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="noise"
+          scale="8"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        />
+      </filter>
+    </svg>
+
+    <!-- Scripts -->
+    <script src="js/script.js" defer></script>
+    <script src="js/interactive-cards.js" defer></script>
   </body>
 </html>
