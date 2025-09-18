@@ -45,19 +45,21 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
 
-    <!-- Icons + Styles -->
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
-    <!-- Load order: base -> utilities -> skills -> electric (cards) -> nav enhance -->
+
+    <!-- Styles (core + effects + contact) -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
     <link rel="stylesheet" href="css/skills.css" />
     <link rel="stylesheet" href="css/electric-anim.css" />
     <link rel="stylesheet" href="css/nav-enhance.css" />
+    <link rel="stylesheet" href="css/contact.css" />
 
     <title>Adarsh | Portfolio</title>
   </head>
@@ -72,16 +74,7 @@
 
           <ul class="nav-menu">
             <li><a class="nav-link" href="#projects">PROJECTS</a></li>
-            <li>
-              <a
-                class="nav-link"
-                href="https://mail.google.com/mail/?view=cm&to=adarshadhi1205@gmail.com&su=Contact%20from%20Website&body=Hi%20Adarsh%2C"
-                target="_blank"
-                rel="noopener"
-                >GMAIL</a
-              >
-            </li>
-
+            <li><a class="nav-link" href="#contact">CONTACT</a></li>
             <li>
               <a
                 class="nav-link btn btn-primary"
@@ -155,97 +148,81 @@
       </div>
 
       <div class="skills-grid">
-        <!-- Programming Languages -->
         <article class="card skill-card" aria-label="Programming Languages">
           <header class="skill-heading">
             <span class="skill-icon"><i class="fas fa-code"></i></span>
             <h3>Programming Languages</h3>
           </header>
           <div class="skill-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Java</span>
-            <span class="tag">C</span>
-            <span class="tag">Python</span>
-            <span class="tag">PHP</span>
+            <span class="tag">HTML</span><span class="tag">CSS</span
+            ><span class="tag">JavaScript</span> <span class="tag">Java</span
+            ><span class="tag">C</span><span class="tag">Python</span
+            ><span class="tag">PHP</span>
           </div>
         </article>
 
-        <!-- Web Development -->
         <article class="card skill-card" aria-label="Web Development">
           <header class="skill-heading">
             <span class="skill-icon"><i class="fas fa-globe"></i></span>
             <h3>Web Development</h3>
           </header>
           <div class="skill-tags">
-            <span class="tag">Responsive UI</span>
-            <span class="tag">Accessibility</span>
-            <span class="tag">DOM</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">MySQL</span>
+            <span class="tag">Responsive UI</span
+            ><span class="tag">Accessibility</span><span class="tag">DOM</span>
+            <span class="tag">REST APIs</span><span class="tag">Node.js</span
+            ><span class="tag">Express</span><span class="tag">MySQL</span>
           </div>
         </article>
 
-        <!-- Cybersecurity -->
         <article class="card skill-card" aria-label="Cybersecurity">
           <header class="skill-heading">
             <span class="skill-icon"><i class="fas fa-shield-alt"></i></span>
             <h3>Cybersecurity</h3>
           </header>
           <div class="skill-tags">
-            <span class="tag">Linux</span>
-            <span class="tag">Networking</span>
-            <span class="tag">OWASP Top 10</span>
-            <span class="tag">Burp Suite</span>
-            <span class="tag">Wireshark</span>
-            <span class="tag">Nmap</span>
+            <span class="tag">Linux</span><span class="tag">Networking</span
+            ><span class="tag">OWASP Top 10</span>
+            <span class="tag">Burp Suite</span><span class="tag">Wireshark</span
+            ><span class="tag">Nmap</span>
           </div>
         </article>
 
-        <!-- Docker -->
         <article class="card skill-card" aria-label="Docker">
           <header class="skill-heading">
             <span class="skill-icon"><i class="fab fa-docker"></i></span>
             <h3>Docker</h3>
           </header>
           <div class="skill-tags">
-            <span class="tag">Docker Engine</span>
-            <span class="tag">Dockerfile</span>
-            <span class="tag">Compose</span>
-            <span class="tag">Images</span>
-            <span class="tag">Volumes</span>
+            <span class="tag">Docker Engine</span
+            ><span class="tag">Dockerfile</span
+            ><span class="tag">Compose</span> <span class="tag">Images</span
+            ><span class="tag">Volumes</span>
           </div>
         </article>
 
-        <!-- Git & GitHub -->
         <article class="card skill-card" aria-label="Git & GitHub">
           <header class="skill-heading">
             <span class="skill-icon"><i class="fab fa-git-alt"></i></span>
             <h3>Git & GitHub</h3>
           </header>
           <div class="skill-tags">
-            <span class="tag">Git CLI</span>
-            <span class="tag">Branching</span>
-            <span class="tag">Pull Requests</span>
-            <span class="tag">Issues</span>
-            <span class="tag">GitHub Actions (basic)</span>
+            <span class="tag">Git CLI</span><span class="tag">Branching</span
+            ><span class="tag">Pull Requests</span>
+            <span class="tag">Issues</span
+            ><span class="tag">GitHub Actions (basic)</span>
           </div>
         </article>
 
-        <!-- Figma -->
         <article class="card skill-card" aria-label="Figma">
           <header class="skill-heading">
             <span class="skill-icon"><i class="fab fa-figma"></i></span>
             <h3>Figma</h3>
           </header>
           <div class="skill-tags">
-            <span class="tag">Wireframing</span>
-            <span class="tag">Prototyping</span>
-            <span class="tag">Components</span>
-            <span class="tag">Design Systems</span>
+            <span class="tag">Wireframing</span
+            ><span class="tag">Prototyping</span>
+            <span class="tag">Components</span
+            ><span class="tag">Design Systems</span>
           </div>
         </article>
       </div>
@@ -260,26 +237,22 @@
       </div>
 
       <div class="project">
-        <!-- 1) Game On -->
         <article class="card" aria-label="Project: Game On">
           <div class="project-info">
             <h3>Game On</h3>
-            <p>A Mini Gaming Hub.</p>
-            <br />
+            <p>A mini game hub built with HTML/CSS/JS.</p>
             <div class="project-actions">
               <a
                 class="btn btn-secondary"
                 href="https://github.com/adarsh-rajeev/Game-On"
                 target="_blank"
                 rel="noopener"
+                >View on GitHub</a
               >
-                View on GitHub
-              </a>
             </div>
           </div>
         </article>
 
-        <!-- 2) Coming soon -->
         <article class="card" aria-label="Project: Coming soon">
           <div class="project-info">
             <h3>Coming soon</h3>
@@ -295,7 +268,6 @@
           </div>
         </article>
 
-        <!-- 3) Coming soon -->
         <article class="card" aria-label="Project: Coming soon">
           <div class="project-info">
             <h3>Coming soon</h3>
@@ -322,10 +294,70 @@
       </a>
     </section>
 
+    <!-- Contact -->
+    <section id="contact" class="contact-section container">
+      <div class="content-text">
+        <h2>Contact</h2>
+        <p>
+          Want to reach out? Drop a message or email me directly:
+          <a
+            class="contact-inline-email"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=adarshadhi1205@gmail.com&tf=1"
+            target="_blank"
+            rel="noopener"
+          >
+            adarshadhi1205@gmail.com
+          </a>
+        </p>
+      </div>
+
+      <form id="contactForm" class="contact-form card contact-full" novalidate>
+        <div class="form-row two">
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" />
+            <div class="error" data-error-for="name"></div>
+          </div>
+          <div class="field">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" />
+            <div class="error" data-error-for="email"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" />
+          <div class="error" data-error-for="subject"></div>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="7"></textarea>
+          <div class="error" data-error-for="message"></div>
+        </div>
+
+        <!-- Honeypot -->
+        <input
+          type="text"
+          name="company"
+          id="company"
+          class="hp"
+          autocomplete="off"
+          tabindex="-1"
+        />
+
+        <div class="actions">
+          <button type="submit" class="btn btn-secondary">Send Message</button>
+          <span class="form-status" id="formStatus" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+
     <footer id="footer">
       <div class="container">
         <a
-          href="https://mail.google.com/mail/?view=cm&to=adarshadhi1205@gmail.com&su=Contact%20from%20Website&body=Hi%20Adarsh%2C"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=adarshadhi1205@gmail.com&tf=1"
           target="_blank"
           rel="noopener"
         >
@@ -356,7 +388,7 @@
       </div>
     </footer>
 
-    <!-- Electric border SVG filter (hidden, used by CSS for cards) -->
+    <!-- SVG Filter for electric effect -->
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="0"
@@ -397,5 +429,6 @@
     <!-- Scripts -->
     <script src="js/script.js" defer></script>
     <script src="js/interactive-cards.js" defer></script>
+    <script src="js/contact.js" defer></script>
   </body>
 </html>

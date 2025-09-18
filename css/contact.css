@@ -1,0 +1,234 @@
+/* ================================
+   Contact Section (Final Version)
+   ================================ */
+
+#contact {
+  margin-top: 5rem;
+  padding-top: 1rem;
+}
+
+#contact .contact-inline-email {
+  font-weight: 700;
+  color: var(--primary-color);
+  word-break: break-all;
+  position: relative;
+  text-decoration: none;
+}
+#contact .contact-inline-email::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+#contact .contact-inline-email:hover::after {
+  transform: scaleX(1);
+}
+#contact .contact-inline-email:hover {
+  opacity: 0.85;
+}
+
+.contact-form.contact-full {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto 1rem;
+  padding: 2rem 1.8rem 2.2rem;
+  position: relative;
+  min-height: auto;
+}
+
+.contact-wrapper {
+  display: contents;
+}
+
+.contact-form .form-row.two {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-bottom: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  position: relative;
+}
+
+.field label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.field input,
+.field textarea {
+  font: inherit;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  resize: vertical;
+  color: #111;
+  outline: none;
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.field textarea {
+  line-height: 1.4;
+}
+
+[data-theme="dark"] .field input,
+[data-theme="dark"] .field textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text-color);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 205, 66, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.9);
+}
+[data-theme="dark"] .field input:focus,
+[data-theme="dark"] .field textarea:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 205, 66, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.error {
+  font-size: 0.63rem;
+  font-weight: 700;
+  color: #d02222;
+  min-height: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+.actions {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.form-status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+  min-height: 1em;
+  line-height: 1.3;
+}
+
+.hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Glow when success (used after Gmail opens) */
+@keyframes formGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 205, 66, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 205, 66, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 205, 66, 0);
+  }
+}
+.contact-form.success {
+  animation: formGlow 1.2s ease-out 1;
+  border-color: rgba(255, 205, 66, 0.65);
+}
+
+/* Status message kinds */
+.form-status .sending-msg {
+  color: var(--primary-color);
+  font-weight: 700;
+  animation: pulseText 1.2s ease-in-out infinite;
+}
+.form-status .sent-msg {
+  color: #41c764;
+  font-weight: 700;
+}
+.form-status .error-msg {
+  color: #ff5252;
+  font-weight: 700;
+}
+
+@keyframes pulseText {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+/* Button spinner / states */
+button.sending {
+  position: relative;
+  filter: saturate(1.05);
+}
+button.sending::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  border: 2px solid rgba(0, 0, 0, 0.55);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button.sent {
+  background: linear-gradient(135deg, #9ff6b9, #41c764);
+  color: #0d2a11 !important;
+  box-shadow: 0 10px 22px rgba(65, 199, 100, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.contact-form.error {
+  border-color: rgba(255, 82, 82, 0.55) !important;
+  box-shadow: 0 0 0 2px rgba(255, 82, 82, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .contact-form.contact-full {
+    padding: 1.6rem 1.2rem 1.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  #contact .contact-inline-email {
+    display: inline-block;
+    word-break: break-word;
+  }
+}

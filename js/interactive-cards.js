@@ -1,17 +1,19 @@
-// Interactive spotlight + 3D tilt on project and skill cards, and magnetic buttons
+// Interactive spotlight + 3D tilt on project, skill, and contact form cards + magnetic buttons
 (() => {
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
   const isHoverCapable = window.matchMedia("(hover: hover)").matches;
 
-  // Include both project cards and skill cards
   const cards = Array.from(
-    document.querySelectorAll(".project .card, #skills .skill-card")
+    document.querySelectorAll(
+      ".project .card, #skills .skill-card, #contact .contact-form.card"
+    )
   );
-  // Include buttons from either section (skills may have none)
   const buttons = Array.from(
-    document.querySelectorAll(".project .card .btn, #skills .skill-card .btn")
+    document.querySelectorAll(
+      ".project .card .btn, #skills .skill-card .btn, #contact .contact-form.card .btn"
+    )
   );
 
   if (prefersReducedMotion || cards.length === 0) return;
@@ -19,15 +21,16 @@
   const states = cards.map((card, i) => ({
     el: card,
     hovered: false,
-    tx: 0.5 + 0.02 * Math.cos(i), // target spotlight (0..1)
+    tx: 0.5 + 0.02 * Math.cos(i),
     ty: 0.5 + 0.02 * Math.sin(i),
     x: 0.5,
-    y: 0.5, // current spotlight
+    y: 0.5,
     tTiltX: 0,
-    tTiltY: 0, // target tilt
+    tTiltY: 0,
     tiltX: 0,
-    tiltY: 0, // current tilt
+    tiltY: 0,
     phase: Math.random() * Math.PI * 2,
+    wide: card.classList.contains("contact-form"),
   }));
 
   if (isHoverCapable) {
@@ -45,10 +48,10 @@
         s.tx = px;
         s.ty = py;
 
-        const maxTiltX = 12,
-          maxTiltY = 16;
-        s.tTiltY = (px - 0.5) * maxTiltY; // rotateY
-        s.tTiltX = (0.5 - py) * maxTiltX; // rotateX
+        const maxTiltX = s.wide ? 6 : 12;
+        const maxTiltY = s.wide ? 8 : 16;
+        s.tTiltY = (px - 0.5) * maxTiltY;
+        s.tTiltX = (0.5 - py) * maxTiltX;
       });
 
       s.el.addEventListener("mouseleave", () => {
@@ -59,7 +62,6 @@
     });
   }
 
-  // Magnetic buttons
   if (isHoverCapable) {
     buttons.forEach((btn) => {
       const maxTranslate = 6;
@@ -81,7 +83,6 @@
     });
   }
 
-  // RAF loop
   let last = performance.now();
   const loop = (t) => {
     const dt = Math.min(32, t - last);
@@ -99,7 +100,6 @@
       const ease = 0.12;
       s.x += (s.tx - s.x) * ease;
       s.y += (s.ty - s.y) * ease;
-
       s.tiltX += (s.tTiltX - s.tiltX) * 0.15;
       s.tiltY += (s.tTiltY - s.tiltY) * 0.15;
 

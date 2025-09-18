@@ -1,31 +1,33 @@
 /* Electric border + spotlight + 3D tilt + magnetic buttons
-   Applied to both Project cards and Skills cards. */
+   Applied to Project cards, Skills cards, and Contact form card. */
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .project .card,
   #skills .skill-card,
+  #contact .contact-form.card,
   .project .card::before,
   #skills .skill-card::before,
+  #contact .contact-form.card::before,
   .project .card::after,
   #skills .skill-card::after,
+  #contact .contact-form.card::after,
   .project .project-actions .btn,
-  #skills .skill-card .btn {
+  #skills .skill-card .btn,
+  #contact .contact-form.card .btn {
     animation: none !important;
     transition: none !important;
     transform: none !important;
   }
 }
 
-/* Variables controlled by JS */
 .project .card,
-#skills .skill-card {
-  --mx: 50%; /* spotlight X (%) */
-  --my: 50%; /* spotlight Y (%) */
+#skills .skill-card,
+#contact .contact-form.card {
+  --mx: 50%;
+  --my: 50%;
   --tiltX: 0deg;
   --tiltY: 0deg;
-  --pulse: 0.48; /* slightly stronger by default on light theme */
-
+  --pulse: 0.48;
   transform: perspective(900px) rotateX(var(--tiltX)) rotateY(var(--tiltY));
   will-change: transform, filter;
   backface-visibility: hidden;
@@ -33,11 +35,11 @@
 }
 
 .project .card:hover,
-#skills .skill-card:hover {
+#skills .skill-card:hover,
+#contact .contact-form.card:hover {
   transform: perspective(900px) rotateX(var(--tiltX)) rotateY(var(--tiltY));
 }
 
-/* Electric ring (outside the card) */
 @keyframes electricFlicker {
   0%,
   100% {
@@ -67,25 +69,22 @@
 }
 
 .project .card::before,
-#skills .skill-card::before {
+#skills .skill-card::before,
+#contact .contact-form.card::before {
   content: "";
   position: absolute;
-  inset: -10px; /* push ring outside */
+  inset: -10px;
   border-radius: 20px;
   border: 3px solid var(--electric);
   background: transparent;
   z-index: 2;
   pointer-events: none;
-
-  /* Distort the border and add warm gold bloom */
   filter: url(#electric-displace) drop-shadow(0 0 8px var(--electric-glow))
     drop-shadow(0 0 18px var(--electric-glow))
     drop-shadow(0 0 36px var(--electric-glow));
-
   animation: electricFlicker 3.2s steps(40, end) infinite;
 }
 
-/* Ambient glow + spotlight (warm to match theme) */
 @keyframes ambientPulse {
   0% {
     opacity: calc(var(--pulse) - 0.1);
@@ -102,14 +101,14 @@
 }
 
 .project .card::after,
-#skills .skill-card::after {
+#skills .skill-card::after,
+#contact .contact-form.card::after {
   content: "";
   position: absolute;
   inset: -22px;
   border-radius: 26px;
   z-index: 1;
   pointer-events: none;
-  /* Spotlight follows --mx/--my, plus a softer halo */
   background: radial-gradient(
       220px 140px at var(--mx) var(--my),
       var(--electric-glow) 0%,
@@ -124,18 +123,21 @@
 }
 
 [data-theme="dark"] .project .card::after,
-[data-theme="dark"] #skills .skill-card::after {
+[data-theme="dark"] #skills .skill-card::after,
+[data-theme="dark"] #contact .contact-form.card::after {
   --pulse: 0.56;
 }
 
-/* Magnetic button */
+/* Magnetic buttons */
 .project .project-actions .btn,
-#skills .skill-card .btn {
+#skills .skill-card .btn,
+#contact .contact-form.card .btn {
   transition: transform 0.18s ease, box-shadow 0.25s ease, filter 0.25s ease;
   will-change: transform, filter, box-shadow;
 }
 .project .project-actions .btn:hover,
-#skills .skill-card .btn:hover {
+#skills .skill-card .btn:hover,
+#contact .contact-form.card .btn:hover {
   filter: saturate(1.1);
   box-shadow: 0 12px 30px rgba(255, 205, 66, 0.35),
     0 6px 16px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.6);
