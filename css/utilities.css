@@ -225,3 +225,50 @@ h2::selection {
 #skills .skill-card .btn.btn-secondary:focus {
   color: #111 !important;
 }
+
+/* ======== Gradient animated text utility ======== */
+.gradient-text {
+  /* Gold spectrum: soft lemon -> brand gold -> amber -> back */
+  background: linear-gradient(
+    90deg,
+    #ffc908,
+    var(--secondary-color),
+    var(--primary-color),
+    #f82500,
+    #ffc20b
+  );
+  background-size: 320% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShiftGold 6s ease-in-out infinite;
+  /* Slight weight boost for headings */
+  font-weight: 800;
+}
+
+@keyframes gradientShiftGold {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text {
+    animation: none;
+  }
+}
+
+/* Selection fallback so selected text stays readable */
+.gradient-text::selection {
+  background: var(--primary-color);
+  color: #111;
+  -webkit-text-fill-color: #111;
+}
